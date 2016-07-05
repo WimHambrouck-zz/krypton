@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Dirk\'s Adventure</string>
+
+    <string name="title_activity_room">RoomActivity</string>
+    <string name="pickup_flower">I\'ll just take one...</string>
+    <string name="town_centre">Town centre</string>
 </resources>
