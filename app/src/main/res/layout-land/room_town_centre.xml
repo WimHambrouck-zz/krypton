@@ -17,14 +17,13 @@
 
     <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal|right"
-        android:layout_weight="1"
         android:src="@drawable/room_town_centre"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        />
+        android:layout_weight="0.20" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -33,6 +32,6 @@
         android:text="@string/town_centre"
         android:id="@+id/textView"
         android:layout_gravity="top"
-        android:layout_weight="200"
+        android:layout_weight="0.60"
         />
 </LinearLayout>
