@@ -13,7 +13,8 @@
         android:layout_alignParentStart="true"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        >
 
     <ImageView
         android:layout_width="fill_parent"
@@ -23,15 +24,12 @@
         android:src="@drawable/room_town_centre"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:layout_weight="0.20" />
+        android:layout_weight="1" />
 
-    <TextView
+    <include
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/town_centre"
-        android:id="@+id/textView"
-        android:layout_gravity="top"
-        android:layout_weight="0.60"
-        />
+        layout="@layout/bottom_menu"
+        android:layout_weight="2" />
+
 </LinearLayout>
