@@ -1,7 +1,11 @@
 <resources>
     <string name="title_activity_room">RoomActivity</string>
-    <string name="pickup_flower">Ik neem er gewoon eentje...</string>
+    <string name="flower_pickup">Ik neem er gewoon eentje…</string>
     <string name="town_centre">Stadscentrum</string>
     <string name="fork">Driesprong</string>
-    <string name="flower_desc">Een mooie bloem</string>
+    <string name="flower_name">Ipecacuanha bloem</string>
+    <string name="signpost_name">Wegwijzer</string>
+    <string name="flower_look">Een mooi bloemenbed</string>
+    <string name="signpost_look">West: Rots van Mantumbi.\nOost: Bosingang, opgepast!</string>
+    <string name="seaside">Kust</string>
 </resources>

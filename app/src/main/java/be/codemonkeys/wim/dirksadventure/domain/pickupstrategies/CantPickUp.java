@@ -1,19 +1,16 @@
 package be.codemonkeys.wim.dirksadventure.domain.pickupstrategies;
 
 import android.content.Context;
-import android.widget.Toast;
 
-import be.codemonkeys.wim.dirksadventure.R;
 import be.codemonkeys.wim.dirksadventure.domain.Item;
 import be.codemonkeys.wim.dirksadventure.domain.interfaces.PickUpStrategy;
 
 /**
- * Created by Wim on 05/07/2016.
+ * Created by Wim on 11/07/2016.
  */
-public class FlowerPickUp implements PickUpStrategy {
-
+public class CantPickUp implements PickUpStrategy {
     @Override
     public void pickUp(Context context, Item item) {
-        Toast.makeText(context, R.string.flower_pickup, Toast.LENGTH_SHORT).show();
+
     }
 }

@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 public abstract class Room {
     private final int layout;
+    private final int name;
     private HashMap<Direction, Room> adjacentRooms;
     private HashMap<Integer, Item> items;
 
@@ -48,8 +49,9 @@ public abstract class Room {
         return items.get(id);
     }
 
-    public Room(int layout) {
+    public Room(int layout, int name) {
         this.layout = layout;
+        this.name = name;
         this.adjacentRooms = new HashMap<>();
         this.items = new HashMap<>();
 
@@ -68,4 +70,7 @@ public abstract class Room {
         return adjacentRooms;
     }
 
+    public int getName() {
+        return name;
+    }
 }

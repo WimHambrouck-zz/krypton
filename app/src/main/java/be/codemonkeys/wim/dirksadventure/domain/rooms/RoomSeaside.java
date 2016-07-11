@@ -7,7 +7,7 @@ import be.codemonkeys.wim.dirksadventure.domain.Room;
  */
 public class RoomSeaside extends Room {
 
-    public RoomSeaside(int layout) {
-        super(layout);
+    public RoomSeaside(int layout, int name) {
+        super(layout, name);
     }
 }

@@ -29,6 +29,18 @@
             android:contentDescription="@string/fork" />
 
         <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:id="@+id/signpost"
+            android:background="@drawable/item_signpost"
+            android:onClick="itemClicked"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentEnd="false"
+            android:contentDescription="@string/signpost_name" />
+
+        <ImageButton
             android:id="@+id/flower"
             android:layout_width="55dp"
             android:layout_height="40dp"
@@ -41,7 +53,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:contentDescription="@string/flower_desc"
+            android:contentDescription="@string/flower_name"
             />
 
         <ImageView
@@ -52,7 +64,7 @@
             android:layout_above="@+id/flower"
             android:layout_alignLeft="@+id/flower"
             android:layout_alignStart="@+id/flower"
-            android:contentDescription="@string/flower_desc"
+            android:contentDescription="@string/flower_name"
             />
 
         <ImageView
@@ -60,7 +72,7 @@
             android:layout_height="16dp"
             android:id="@+id/flower_2"
             android:src="@drawable/item_flower"
-            android:contentDescription="@string/flower_desc"
+            android:contentDescription="@string/flower_name"
             android:layout_below="@+id/flower_1"
             android:layout_alignRight="@+id/flower"
             android:layout_alignEnd="@+id/flower" />
@@ -70,7 +82,7 @@
             android:layout_height="16dp"
             android:id="@+id/flower_3"
             android:src="@drawable/item_flower"
-            android:contentDescription="@string/flower_desc"
+            android:contentDescription="@string/flower_name"
             android:layout_below="@+id/flower_2"
             android:layout_alignRight="@+id/flower"
             android:layout_alignEnd="@+id/flower" />
@@ -80,7 +92,7 @@
             android:layout_height="16dp"
             android:id="@+id/flower_4"
             android:src="@drawable/item_flower"
-            android:contentDescription="@string/flower_desc"
+            android:contentDescription="@string/flower_name"
             android:layout_below="@+id/flower_2"
             android:layout_alignRight="@+id/flower_1"
             android:layout_alignEnd="@+id/flower_1" />

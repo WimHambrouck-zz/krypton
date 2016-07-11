@@ -10,7 +10,7 @@ import be.codemonkeys.wim.dirksadventure.domain.Room;
  */
 public class RoomTownCentre extends Room {
 
-    public RoomTownCentre(int layout) {
-        super(layout);
+    public RoomTownCentre(int layout, int name) {
+        super(layout, name);
     }
 }

@@ -2,8 +2,12 @@
     <string name="app_name" translatable="false">Dirk\'s Adventure</string>
 
     <string name="title_activity_room">RoomActivity</string>
-    <string name="pickup_flower">I\'ll just take one...</string>
+    <string name="flower_pickup">I\'ll just take one…</string>
     <string name="town_centre">Town centre</string>
     <string name="fork">Fork</string>
-    <string name="flower_desc">A lovely flower</string>
+    <string name="flower_name">Ipecacuanha flower</string>
+    <string name="flower_look">A lovely bed of flowers</string>
+    <string name="signpost_name">Signpost</string>
+    <string name="signpost_look">West: Rock of Mantumbi.\nEast: Forest entrance, beware!</string>
+    <string name="seaside">Seaside</string>
 </resources>

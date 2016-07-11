@@ -22,9 +22,9 @@ public class World {
     }
 
     public World() {
-        Room townCentre = new RoomTownCentre(R.layout.room_town_centre);
-        Room fork = new RoomFork(R.layout.room_fork);
-        Room seaside = new RoomSeaside(R.layout.room_seaside);
+        Room townCentre = new RoomTownCentre(R.layout.room_town_centre, R.string.town_centre);
+        Room fork = new RoomFork(R.layout.room_fork, R.string.fork);
+        Room seaside = new RoomSeaside(R.layout.room_seaside, R.string.seaside);
 
         townCentre.putAdjacentRoom(Direction.UP, fork);
         townCentre.putAdjacentRoom(Direction.DOWN, seaside);

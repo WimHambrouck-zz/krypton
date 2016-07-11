@@ -1,7 +1,11 @@
 package be.codemonkeys.wim.dirksadventure;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Typeface;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -20,11 +24,20 @@ import be.codemonkeys.wim.dirksadventure.domain.Player;
 import be.codemonkeys.wim.dirksadventure.domain.Room;
 import be.codemonkeys.wim.dirksadventure.domain.World;
 
-public class  RoomActivity extends AppCompatActivity  {
+public class RoomActivity extends AppCompatActivity  {
 
     private GestureDetectorCompat gDetector;
     private World world;
     private Player player;
+    private TextView statusText;
+
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            setStatusText(intent.getStringExtra("message"));
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +48,24 @@ public class  RoomActivity extends AppCompatActivity  {
 
         this.world = new World();
         changeRoom(this.world.getCurrentRoom());
-        TextView text = (TextView) findViewById(R.id.textView);
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/MorePerfectDOSVGA.ttf");
-        text.setTypeface(tf);
+
+        setStatusTextTypeface();
 
         //Instantiate the gesture detector
         gDetector = new GestureDetectorCompat(this, new GestureListener(this));
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, new IntentFilter("msgtest"));
+    }
+
+    @Override
+    protected void onDestroy() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver);
+        super.onDestroy();
+    }
+
+    private void setStatusTextTypeface() {
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/MorePerfectDOSVGA.ttf");
+        statusText.setTypeface(tf);
     }
 
     @Override
@@ -48,6 +73,12 @@ public class  RoomActivity extends AppCompatActivity  {
         //send the touch event to the GestureDetector
         this.gDetector.onTouchEvent(event);
         return super.onTouchEvent(event);
+    }
+
+    private void setStatusText(String message)
+    {
+        statusText = (TextView) findViewById(R.id.txt_status);
+        statusText.setText(message);
     }
 
     /**
@@ -58,6 +89,7 @@ public class  RoomActivity extends AppCompatActivity  {
         if (actionBar != null) {
             actionBar.hide();
         }
+
 
         View background = findViewById(R.id.background);
 
@@ -83,6 +115,8 @@ public class  RoomActivity extends AppCompatActivity  {
      */
     private void changeRoom(Room newRoom) {
         setContentView(newRoom.getLayout());
+        setStatusText(getString(newRoom.getName()));
+        setStatusTextTypeface();
         makeMeFullscreen();
         world.setCurrentRoom(newRoom);
     }
@@ -92,6 +126,9 @@ public class  RoomActivity extends AppCompatActivity  {
         Item clickedItem = world.getCurrentRoom().getItem(view.getId());
 
         clickedItem.interact(this);
+
+        //LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent("msgtest"));
+
 
 //        int id = view.getId();
 //
