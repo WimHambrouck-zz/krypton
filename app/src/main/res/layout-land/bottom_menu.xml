@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- the bottom part of the game screen, with status text and menu buttons -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/town_centre"
-        android:id="@+id/textView"
         android:layout_gravity="top"
         android:layout_weight="1"
-        />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <android.support.v7.widget.ButtonBarLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2">
-
+        android:layout_weight="2"
+        android:orientation="horizontal">
 
         <Button
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
-            android:id="@+id/button" />
+            />
 
         <Button
+            android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button2" />
+            android:text="New Button" />
 
         <Button
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button3" />
-    </LinearLayout>
-
-
+            android:text="New Button" />
+    </android.support.v7.widget.ButtonBarLayout>
 </LinearLayout>

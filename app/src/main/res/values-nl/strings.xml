@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Dirk\'s Adventure</string>
-
     <string name="title_activity_room">RoomActivity</string>
     <string name="pickup_flower">Ik neem er gewoon eentje...</string>
     <string name="town_centre">Stadscentrum</string>
+    <string name="fork">Driesprong</string>
+    <string name="flower_desc">Een mooie bloem</string>
 </resources>

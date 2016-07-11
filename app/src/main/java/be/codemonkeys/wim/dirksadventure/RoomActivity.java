@@ -20,7 +20,7 @@ import be.codemonkeys.wim.dirksadventure.domain.Player;
 import be.codemonkeys.wim.dirksadventure.domain.Room;
 import be.codemonkeys.wim.dirksadventure.domain.World;
 
-public class RoomActivity extends AppCompatActivity  {
+public class  RoomActivity extends AppCompatActivity  {
 
     private GestureDetectorCompat gDetector;
     private World world;

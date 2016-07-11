@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/background"
-    android:keepScreenOn="true"
-    tools:context=".RoomActivity"
-    android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:keepScreenOn="true"
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
+    tools:context=".RoomActivity">
 
     <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
         android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal|right"
-        android:src="@drawable/room_seaside"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"
-        android:layout_weight="1" />
-
-    <include
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/room_seaside" />
+
+    <!-- include bottom of the screen with status text and menu -->
+    <include
         layout="@layout/bottom_menu"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_weight="2" />
 
 </LinearLayout>
