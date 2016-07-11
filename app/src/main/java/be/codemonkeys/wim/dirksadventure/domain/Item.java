@@ -22,24 +22,19 @@ public class Item {
     private LookStrategy lookImplementation;
     private UseStrategy useImplementation;
     private ItemInteraction defaultItemInteraction;
-    private final String pickUpMessage, lookMessage;
 
     private Item(int id,
                  int name,
                  PickUpStrategy pickUpImplementation,
                  LookStrategy lookImplementation,
                  UseStrategy useImplementation,
-                 ItemInteraction defaultItemInteraction,
-                 String pickUpMessage,
-                 String lookMessage) {
+                 ItemInteraction defaultItemInteraction) {
         this.id = id;
         this.name = name;
         this.pickUpImplementation = pickUpImplementation;
         this.lookImplementation = lookImplementation;
         this.useImplementation = useImplementation;
         this.defaultItemInteraction = defaultItemInteraction;
-        this.pickUpMessage = pickUpMessage;
-        this.lookMessage = lookMessage;
     }
 
     /**
@@ -98,14 +93,6 @@ public class Item {
         return name;
     }
 
-    public String getPickUpMessage() {
-        return pickUpMessage;
-    }
-
-    public String getLookMessage() {
-        return lookMessage;
-    }
-
     /**
      * Builder class for new items.
      */
@@ -154,18 +141,6 @@ public class Item {
             return this;
         }
 
-        public ItemBuilder pickUpMessage(String pickUpMessage) {
-            this.pickUpMessage = pickUpMessage;
-            return this;
-        }
-
-        public ItemBuilder lookMessage(String lookMessage) {
-            this.lookMessage = lookMessage;
-            return this;
-        }
-
-
-
         /**
          * Creates a new item with the values set on the builder. Note: if any strategy is not set,
          * the default strategy will be set. (e.g.: DefaultPickUp if nu pickUpImplementation is set)
@@ -194,9 +169,7 @@ public class Item {
                     pickUpImplementation,
                     lookImplementation,
                     useImplementation,
-                    defaultItemInteraction,
-                    pickUpMessage,
-                    lookMessage
+                    defaultItemInteraction
             );
         }
     }
