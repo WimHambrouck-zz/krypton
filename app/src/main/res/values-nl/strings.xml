@@ -8,4 +8,7 @@
     <string name="flower_look">Een mooi bloemenbed</string>
     <string name="signpost_look">West: Rots van Mantumbi.\nOost: Bosingang, opgepast!</string>
     <string name="seaside">Kust</string>
+    <string name="cant_pickup">Dat kan ik niet oppakken.</string>
+    <string name="default_look">Ik weet niet goed wat dat is.</string>
+    <string name="default_pickup">%s toegevoegd aan inventory.</string>
 </resources>

@@ -1,13 +1,22 @@
 <resources>
     <string name="app_name" translatable="false">Dirk\'s Adventure</string>
-
     <string name="title_activity_room">RoomActivity</string>
-    <string name="flower_pickup">I\'ll just take one…</string>
+
+    <!-- Rooms -->
     <string name="town_centre">Town centre</string>
     <string name="fork">Fork</string>
+    <string name="seaside">Seaside</string>
+
+    <!-- Items in fork -->
     <string name="flower_name">Ipecacuanha flower</string>
-    <string name="flower_look">A lovely bed of flowers</string>
+    <string name="flower_pickup">I\'ll just take one…</string>
+    <string name="flower_look">A lovely bed of flowers.</string>
+
     <string name="signpost_name">Signpost</string>
     <string name="signpost_look">West: Rock of Mantumbi.\nEast: Forest entrance, beware!</string>
-    <string name="seaside">Seaside</string>
+
+    <!-- Default action messages, used when no custom message is specified for the interaction -->
+    <string name="default_pickup">%s added to inventory.</string>
+    <string name="default_look">I don\'t really know what that is.</string>
+    <string name="cant_pickup">I can\'t pick that up.</string>
 </resources>

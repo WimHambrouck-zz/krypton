@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import be.codemonkeys.wim.dirksadventure.R;
+import be.codemonkeys.wim.dirksadventure.domain.Helper;
 import be.codemonkeys.wim.dirksadventure.domain.Item;
 import be.codemonkeys.wim.dirksadventure.domain.interfaces.PickUpStrategy;
 
@@ -14,6 +15,6 @@ public class FlowerPickUp implements PickUpStrategy {
 
     @Override
     public void pickUp(Context context, Item item) {
-        Toast.makeText(context, R.string.flower_pickup, Toast.LENGTH_SHORT).show();
+        Helper.sendStatusText(context, context.getString(R.string.flower_pickup));
     }
 }

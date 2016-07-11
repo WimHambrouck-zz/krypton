@@ -1,6 +1,8 @@
 package be.codemonkeys.wim.dirksadventure.domain.rooms;
 
+import be.codemonkeys.wim.dirksadventure.domain.lookstrategies.DefaultLook;
 import be.codemonkeys.wim.dirksadventure.domain.pickupstrategies.CantPickUp;
+import be.codemonkeys.wim.dirksadventure.domain.pickupstrategies.DefaultPickUp;
 import be.codemonkeys.wim.dirksadventure.domain.pickupstrategies.FlowerPickUp;
 import be.codemonkeys.wim.dirksadventure.R;
 import be.codemonkeys.wim.dirksadventure.domain.Item;
@@ -18,7 +20,7 @@ public class RoomFork extends Room {
         putItem(new Item.ItemBuilder(R.id.flower)
                 .name(R.string.flower_name)
                 .defaultItemInteraction(ItemInteraction.PICKUP)
-                .pickUpImplementation(new FlowerPickUp())
+                .pickUpImplementation(new DefaultPickUp(R.string.flower_pickup))
                 .createItem()
         );
 
@@ -26,6 +28,7 @@ public class RoomFork extends Room {
                 .name(R.string.signpost_name)
                 .defaultItemInteraction(ItemInteraction.LOOK)
                 .pickUpImplementation(new CantPickUp())
+                .lookImplementation(new DefaultLook(R.string.signpost_look))
                 .createItem()
         );
     }

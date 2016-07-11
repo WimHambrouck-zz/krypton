@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Typeface;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.ActionBar;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import be.codemonkeys.wim.dirksadventure.domain.Direction;
+import be.codemonkeys.wim.dirksadventure.domain.Helper;
 import be.codemonkeys.wim.dirksadventure.domain.Item;
 import be.codemonkeys.wim.dirksadventure.domain.Player;
 import be.codemonkeys.wim.dirksadventure.domain.Room;
@@ -34,8 +37,7 @@ public class RoomActivity extends AppCompatActivity  {
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            setStatusText(intent.getStringExtra("message"));
-
+            setStatusText(intent.getStringExtra(Helper.INTENT_EXTRA));
         }
     };
 
@@ -54,18 +56,13 @@ public class RoomActivity extends AppCompatActivity  {
         //Instantiate the gesture detector
         gDetector = new GestureDetectorCompat(this, new GestureListener(this));
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, new IntentFilter("msgtest"));
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver, new IntentFilter(Helper.INTENT_FILTER));
     }
 
     @Override
     protected void onDestroy() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver);
         super.onDestroy();
-    }
-
-    private void setStatusTextTypeface() {
-        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/MorePerfectDOSVGA.ttf");
-        statusText.setTypeface(tf);
     }
 
     @Override
@@ -75,10 +72,49 @@ public class RoomActivity extends AppCompatActivity  {
         return super.onTouchEvent(event);
     }
 
+    /**
+     * Sets the typeface of the txt_status TextView to the classic VGA font
+     */
+    private void setStatusTextTypeface() {
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/MorePerfectDOSVGA.ttf");
+        statusText.setTypeface(tf);
+    }
+
+    /**
+     * Sets the status text to the given messages and provides a primitive ""animation"" whereby
+     * the letters appear one at a time with a 10 millisecond delay between each letter.
+     * @param message The message to display in the statusText TextView
+     */
     private void setStatusText(String message)
     {
+        //we have to call findViewById every time, because if the screen has changed
+        // (i.e.: a new XML file has been attached to RoomActivity), setText won't work
         statusText = (TextView) findViewById(R.id.txt_status);
-        statusText.setText(message);
+
+        //initialize temporary String
+        String tempmsg = "";
+
+        //create handler for our Runnables
+        Handler handler = new Handler();
+
+        //iterate trough every character of the message
+        for (int i = 0; i < message.length(); i++)
+        {
+            //add the new character to the temporary string
+            tempmsg += message.charAt(i);
+
+            //copy it to a final variable for use in the runnable
+            final String msg = tempmsg;
+
+            //schedule the new runnable now if i == 0, else it will be 10 milliseconds after
+            // the previous one, making the text appear character by character
+            handler.postAtTime(new Runnable() {
+                @Override
+                public void run() {
+                    statusText.setText(msg);
+                }
+            }, SystemClock.uptimeMillis() + i * 10);
+        }
     }
 
     /**
@@ -89,7 +125,6 @@ public class RoomActivity extends AppCompatActivity  {
         if (actionBar != null) {
             actionBar.hide();
         }
-
 
         View background = findViewById(R.id.background);
 
@@ -121,22 +156,16 @@ public class RoomActivity extends AppCompatActivity  {
         world.setCurrentRoom(newRoom);
     }
 
+    /**
+     * Called by the ImageViews in the activity layouts that represent items in the game when clicked
+     */
     public void itemClicked(View view)
     {
+        //get the object associated with the item id
         Item clickedItem = world.getCurrentRoom().getItem(view.getId());
 
+        //perform the default interaction as defined by the object
         clickedItem.interact(this);
-
-        //LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent("msgtest"));
-
-
-//        int id = view.getId();
-//
-//        if(id == R.id.flower)
-//        {
-//            Toast.makeText(this, "it's a flower!", Toast.LENGTH_SHORT).show();
-//            view.setVisibility(View.INVISIBLE);
-//        }
     }
 
     /**
