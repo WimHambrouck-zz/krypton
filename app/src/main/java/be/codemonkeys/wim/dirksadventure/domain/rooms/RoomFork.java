@@ -1,9 +1,8 @@
 package be.codemonkeys.wim.dirksadventure.domain.rooms;
 
 import be.codemonkeys.wim.dirksadventure.domain.lookstrategies.DefaultLook;
-import be.codemonkeys.wim.dirksadventure.domain.pickupstrategies.CantPickUp;
+import be.codemonkeys.wim.dirksadventure.domain.pickupstrategies.CannotPickUp;
 import be.codemonkeys.wim.dirksadventure.domain.pickupstrategies.DefaultPickUp;
-import be.codemonkeys.wim.dirksadventure.domain.pickupstrategies.FlowerPickUp;
 import be.codemonkeys.wim.dirksadventure.R;
 import be.codemonkeys.wim.dirksadventure.domain.Item;
 import be.codemonkeys.wim.dirksadventure.domain.ItemInteraction;
@@ -27,7 +26,7 @@ public class RoomFork extends Room {
         putItem(new Item.ItemBuilder(R.id.signpost)
                 .name(R.string.signpost_name)
                 .defaultItemInteraction(ItemInteraction.LOOK)
-                .pickUpImplementation(new CantPickUp())
+                .pickUpImplementation(new CannotPickUp())
                 .lookImplementation(new DefaultLook(R.string.signpost_look))
                 .createItem()
         );

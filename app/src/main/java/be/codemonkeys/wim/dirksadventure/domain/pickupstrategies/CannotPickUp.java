@@ -10,7 +10,7 @@ import be.codemonkeys.wim.dirksadventure.domain.interfaces.PickUpStrategy;
 /**
  * Used when an item can't be picked up.
  */
-public class CantPickUp implements PickUpStrategy {
+public class CannotPickUp implements PickUpStrategy {
     /**
      * Displays the items pick up message or a default error messages if it is not present
      * @param context The Activity context requesting the interaction
